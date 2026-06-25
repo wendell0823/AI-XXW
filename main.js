@@ -1,4 +1,4 @@
-const VIDEO_CDN_BASE = "https://media.githubusercontent.com/media/wendell0823/AI-XXW/main/assets/videos/";
+const VIDEO_CDN_BASE = "https://video.xw-ai.art/assets/videos/";
 const localVideoHosts = new Set(["", "localhost", "127.0.0.1", "::1"]);
 const useRemoteVideoFiles = !localVideoHosts.has(window.location.hostname);
 
