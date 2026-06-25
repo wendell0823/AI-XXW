@@ -1,3 +1,19 @@
+const VIDEO_CDN_BASE = "https://media.githubusercontent.com/media/wendell0823/AI-XXW/main/assets/videos/";
+const useRemoteVideoFiles = /\.vercel\.app$/i.test(window.location.hostname);
+
+function resolveVideoSrc(pathOrFile) {
+  const path = pathOrFile.includes("/") ? pathOrFile : `assets/videos/${pathOrFile}`;
+  if (!useRemoteVideoFiles) return path;
+  return `${VIDEO_CDN_BASE}${encodeURIComponent(path.split("/").pop())}`;
+}
+
+function applyStaticVideoSources() {
+  document.querySelectorAll("video[data-video-src]").forEach((video) => {
+    video.src = resolveVideoSrc(video.dataset.videoSrc || "");
+    if (useRemoteVideoFiles) video.crossOrigin = "anonymous";
+  });
+}
+
 function initEntryLoader() {
   const loader = document.querySelector("#entryLoader");
   const badgeWrap = document.querySelector("#entryBadgeWrap");
@@ -184,6 +200,7 @@ function initEntryLoader() {
   setProgress(1);
 }
 
+applyStaticVideoSources();
 initEntryLoader();
 
 const storySections = [
@@ -1386,7 +1403,7 @@ function openCaseModal(caseItem) {
               </div>
               <div class="video-model">${visibleText(caseItem.model || "")}</div>
             </div>
-            <video class="detail-video" controls playsinline preload="metadata" src="assets/videos/${escapeHtml(video.file)}"></video>
+            <video class="detail-video" controls playsinline preload="metadata" ${useRemoteVideoFiles ? 'crossorigin="anonymous"' : ""} src="${escapeHtml(resolveVideoSrc(video.file))}"></video>
           </div>
           ${caseItem.betweenVideoVisual && index === 0 ? `
             <figure class="modal-slide-frame modal-slide-frame-transparent modal-between-videos">
