@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="AI 创意进化论：从前瞻探索到场景验证。个人 AI 使用总结、案例 Demo 与后续验证。"
+    />
+    <title>AI 创意进化论：从前瞻探索到场景验证</title>
+    <link rel="preload" as="image" href="assets/slides/slide-01.webp" />
+    <link rel="stylesheet" href="styles.css?v=20260624-hero-video-5" />
+  </head>
+  <body class="entry-loading">
+    <div class="entry-loader" id="entryLoader" aria-live="polite" aria-label="页面加载中">
+      <div class="entry-loader-reveal" id="entryLoaderReveal" aria-hidden="true"></div>
+      <div class="entry-badge-wrap" id="entryBadgeWrap">
+        <span class="entry-badge-strap" aria-hidden="true"></span>
+        <span class="entry-badge-ring" aria-hidden="true"></span>
+        <span class="entry-badge-hook" aria-hidden="true"></span>
+        <button class="entry-badge" id="entryBadge" type="button" aria-label="拖拽工牌进入网站">
+          <span class="entry-badge-clip" aria-hidden="true"></span>
+          <span class="entry-badge-face entry-badge-front">
+            <span class="entry-badge-number" data-loader-number>0</span>
+          </span>
+          <span class="entry-badge-face entry-badge-back">
+            <span class="entry-badge-number" data-loader-number>0</span>
+          </span>
+        </button>
+      </div>
+      <div class="entry-loader-status" id="entryLoaderStatus">loading...</div>
+    </div>
+
+    <canvas id="fieldCanvas" class="field-canvas" aria-hidden="true"></canvas>
+    <header class="site-header">
+      <a href="#top" class="brand" aria-label="返回首页">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>AI EVOLUTION</span>
+      </a>
+      <nav class="top-nav" aria-label="主导航">
+        <a href="#top">概览</a>
+        <a href="#insight-09">心得</a>
+        <a href="#demo-carousel">Demo</a>
+        <a href="#summary-25">总结</a>
+      </nav>
+      <a class="header-action" href="#demo-carousel">查看案例</a>
+    </header>
+
+    <aside class="section-rail" id="sectionRail" aria-label="章节导航"></aside>
+    <div class="page-progress" id="pageProgress" aria-hidden="true"></div>
+
+    <main>
+      <section class="hero-section" id="top" data-nav="TOP">
+        <video
+          class="hero-background-video"
+          src="assets/videos/hero-bg.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-hidden="true"
+        ></video>
+        <div class="hero-background-shade" aria-hidden="true"></div>
+        <div class="hero-layout">
+          <div class="hero-content reveal">
+            <p class="stage-label">PERSONAL AI FIELD NOTES</p>
+            <h1>
+              <span class="hero-title-line">AI 创意进化论：</span>
+              <span class="hero-title-line">从前瞻探索到场景验证</span>
+            </h1>
+            <p class="hero-subtitle">跨越单一生成边界，沉淀多工具融合的创意体系</p>
+            <div class="hero-actions" aria-label="首页行动">
+              <a class="primary-cta" href="#stage-02">开始阅读</a>
+              <a class="secondary-cta" href="#demo-carousel">案例 Demo</a>
+            </div>
+            <div class="hero-meta">
+              <span>品牌营销</span>
+              <span>徐晓闻</span>
+              <span>2026</span>
+            </div>
+          </div>
+          <div class="hero-video-shell reveal">
+            <figure class="hero-playback-card" id="heroVideoCard" aria-label="首页视频播放框">
+              <video
+                id="heroVideo"
+                class="hero-video"
+                src="assets/videos/intro.mp4"
+                playsinline
+                preload="metadata"
+                poster="assets/slides/slide-01.webp"
+              ></video>
+              <button
+                class="hero-play-button"
+                id="heroPlayButton"
+                type="button"
+                aria-controls="heroVideo"
+                aria-label="播放首页视频"
+              >
+                <span class="hero-play-button-icon" aria-hidden="true"></span>
+              </button>
+            </figure>
+          </div>
+        </div>
+        <div class="scroll-cue">scroll to explore</div>
+      </section>
+
+      <div id="storyRoot"></div>
+
+      <section class="end-section" id="end-section" aria-label="结束页入口">
+        <button class="end-button" id="endButton" type="button">END</button>
+      </section>
+    </main>
+
+    <section class="final-page" id="finalPage" aria-hidden="true" aria-label="结束页">
+      <canvas class="final-stars" id="finalStars" aria-hidden="true"></canvas>
+      <div class="final-content">
+        <h1 class="final-title" id="finalTitle" aria-label="Thank You">Thank You</h1>
+        <button class="final-home-button" id="finalHomeButton" type="button">Home</button>
+      </div>
+    </section>
+
+    <div class="case-modal" id="caseModal" aria-hidden="true" role="dialog" aria-modal="true">
+      <button class="case-modal-backdrop" type="button" data-close-modal aria-label="关闭案例详情"></button>
+      <article class="case-modal-panel" aria-labelledby="caseModalTitle">
+        <button class="case-modal-close" type="button" data-close-modal aria-label="关闭案例详情">×</button>
+        <div class="case-modal-copy">
+          <p class="page-kind" id="caseModalKind"></p>
+          <h2 id="caseModalTitle"></h2>
+          <p id="caseModalLead"></p>
+          <div class="model-chip" id="caseModalModel"></div>
+          <ul class="content-lines" id="caseModalLines"></ul>
+        </div>
+        <div class="case-modal-media" id="caseModalMedia"></div>
+      </article>
+    </div>
+
+    <div class="image-lightbox" id="imageLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="图片预览">
+      <button class="image-lightbox-backdrop" type="button" data-close-lightbox aria-label="关闭图片预览"></button>
+      <button class="image-lightbox-close" type="button" data-close-lightbox aria-label="关闭图片预览">×</button>
+      <img
+        id="imageLightboxImage"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+        alt=""
+      />
+    </div>
+
+    <script type="module" src="main.js?v=20260624-hero-video-5"></script>
+  </body>
+</html>

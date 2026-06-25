@@ -1,0 +1,11 @@
+work/
+tools/
+scripts/
+src/
+package.json
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+.git/
+.agents/
+.codex/
