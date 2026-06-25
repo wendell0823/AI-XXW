@@ -1,5 +1,6 @@
 const VIDEO_CDN_BASE = "https://media.githubusercontent.com/media/wendell0823/AI-XXW/main/assets/videos/";
-const useRemoteVideoFiles = /\.vercel\.app$/i.test(window.location.hostname);
+const localVideoHosts = new Set(["", "localhost", "127.0.0.1", "::1"]);
+const useRemoteVideoFiles = !localVideoHosts.has(window.location.hostname);
 
 function resolveVideoSrc(pathOrFile) {
   const path = pathOrFile.includes("/") ? pathOrFile : `assets/videos/${pathOrFile}`;
