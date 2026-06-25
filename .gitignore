@@ -3,3 +3,4 @@ tools/
 src/
 .DS_Store
 .vercel/
+.wrangler/
