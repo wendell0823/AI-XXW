@@ -4516,12 +4516,12 @@ body.final-active {
   }
 
   .hero-video-shell {
-    top: clamp(250px, 46%, 328px);
-    width: min(760px, 50vw);
+    top: clamp(218px, 39%, 286px);
+    width: min(740px, 49vw);
   }
 
   .scroll-cue {
-    bottom: 18px;
+    bottom: 20px;
   }
 }
 
@@ -4541,7 +4541,8 @@ body.final-active {
   }
 
   .hero-video-shell {
-    width: min(700px, 48vw);
+    top: 224px;
+    width: min(660px, 46vw);
   }
 }
 
